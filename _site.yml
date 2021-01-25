@@ -1,0 +1,14 @@
+name: "."
+title: "Kelsie Fronheiser"
+description: |
+  Kelsie Fronheiser
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Zuko!"
+      href: zuko.html
+output: distill::distill_article
