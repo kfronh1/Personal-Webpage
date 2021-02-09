@@ -15,4 +15,4 @@ output:
 site: distill::distill_website
 ---
  
-I am a master's candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara. I am specializing in Conservation Planning with a focus in Environmental Data Science.
+I am a master's candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara. I am specializing in Conservation Planning with a focus in Environmental Data Science. My career aspirations are to contribute to conservation planning and/or environmental policy to protect the Chesapeake Bay. 
