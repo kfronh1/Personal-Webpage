@@ -1,0 +1,22 @@
+---
+title: "welcome"
+description: |
+  This is my first blog post on my very own website! Very cool.
+author:
+  - name: Kelsie Fronheiser
+date: 02-09-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+
