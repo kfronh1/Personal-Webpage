@@ -10,7 +10,7 @@ email: "kfronheiser@ucsb.edu"
 github: https://github.com/kfronh1
 linkedin: mariecurie
 date: "`r format(Sys.time(), '%B %Y')`"
-aboutme: "Marie is a Polish and naturalized-French physicist and chemist who conducts pioneering research on radioactivity."
+aboutme: ""
 output: 
   vitae::markdowncv:
     theme: kjhealy
@@ -33,29 +33,19 @@ library(vitae)
 library(tibble)
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
-  "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
-  "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
+  "Organismal Biology & Ecology", "2012-2016","Towson, Maryland", "Towson University",
+  "Master of Environmental Science & Management", "2019-2021", "Santa Barbara, California", "Bren School of Environemtal Science & Management at the University of California Santa Barbara"
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where)
 ```
 
-## Nobel Prizes
+## Experience
 
 ```{r}
-tribble(
-  ~Year, ~Type, ~Desc,
-  1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
-  1911, "Chemistry", "Awarded for the discovery of radium and polonium"
-) %>% 
-  brief_entries(
-    glue::glue("Nobel Prize in {Type}"),
-    Year, 
-    Desc
-  )
+
 ```
 
-## Publications
+## Skills & Certifications
 
 ```{r}
 library(dplyr)
