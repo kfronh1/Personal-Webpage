@@ -9,10 +9,13 @@ navbar:
       href: index.html
     - text: "About Me"
       href: about.html
+    - text: "Resume"
+      href: resume.html
+    - text: "Projects"
+      href: projects.html
+    - text: "Gallery"
+      href: gallery.html
     - text: "Blog"
       href: blog.html
-    - text: "CV"
-      href: CV.html
-    - text: "Resume"
-      href: resume.Rmd
+    
 output: distill::distill_article
