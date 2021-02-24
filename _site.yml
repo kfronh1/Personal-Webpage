@@ -11,7 +11,7 @@ navbar:
       href: about.html
     - text: "Resume"
       href: resume.html
-    - text: "Projects"
+    - text: "Portfolio"
       href: projects.html
     - text: "Gallery"
       href: gallery.html

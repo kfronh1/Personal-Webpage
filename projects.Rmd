@@ -1,7 +1,7 @@
 ---
-title: "Projects"
+title: "Portfolio"
 description: |
-  Here are some of my past projects
+  Here are some of my past projects that highlight my skills and experience
 ---
 
 ```{r echo = FALSE, message=FALSE, fig.align='center', fig.pos='H', out.width= "1000px", out.height="850px"}

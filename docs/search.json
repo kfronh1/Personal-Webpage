@@ -6,22 +6,22 @@
       "description": "Some additional details about myself",
       "author": [],
       "contents": "\r\nInterests: I love adventures in nature and exploring new places. During my free time you’ll find me hiking a mountain, biking along the coast, kayaking in creeks or over waves, or practicing yoga on the beach. I enjoy birding and observing wildlife. I love all creatures, from tiny hairy spiders to ferocious mega fauna. I am partial to cats, but I like dogs as well.\r\nExperience: I graduated with my Bachelor’s degree in Biology from Towson University in 2017. Since 2016, I have worked for Baltimore County Department of Recreation and Parks as a Park Naturalist. As a Park Naturalist, I teach the public about nature, wildlife, and environmental concerns. I worked as an Environmental Educator for an environmental education non-profit for a year between my undergraduate and graduate schooling.\r\nProjects: I am currently working on the graduate group capstone project “Combining Conservation & Community Empowerment: Establishing Community Forests in DRC to Protect Critically Endangered Grauer’s Gorillas and Improve Well-Being of Impoverished Communities.” We are conducting connectivity, socioeconomic, and climate projection analyses to determine best planning and management actions for community forest success.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-23T23:54:35-08:00"
+      "last_modified": "2021-02-24T15:23:43-08:00"
     },
     {
       "path": "blog.html",
       "title": "Kelsie's Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-23T23:54:36-08:00"
+      "last_modified": "2021-02-24T15:23:44-08:00"
     },
     {
       "path": "CV.html",
       "title": "CV",
       "author": [],
       "date": "`r format(Sys.time(), '%B %Y')`",
-      "contents": "\r\n    \r\n  \r\n  Kelsie Fronheiser\r\n  \r\n  \r\n  Home\r\n  About Me\r\n  Resume\r\n  Projects\r\n  Gallery\r\n  Blog\r\n  ☰\r\n  \r\n  \r\n    \r\n      \r\n        \r\n          \r\n          \r\n          \r\n        \r\n        \r\n      \r\n      \r\n        \r\n    Home\r\n  \r\n  \r\n    About Me\r\n  \r\n  \r\n    Resume\r\n  \r\n  \r\n    Projects\r\n  \r\n  \r\n    Gallery\r\n  \r\n  \r\n    Blog\r\n  \r\n        \r\n    \r\n  \r\n    \r\n    \r\n      Kelsie Fronheiser\r\n      Student\r\n      Bren School of Environmental Science & Management at the University of California Santa Barbara\r\n\r\n      \r\n      |\r\n       +1 443 553 9610 |\r\n       ~ |\r\n       kfronheiser@ucsb.edu |\r\n      \r\n       https://github.com/kfronh1\">https://github.com/kfronh1 |\r\n       mariecurie |\r\n      \r\n\r\n      \r\n      Some stuff about me\r\n      \r\n      \r\n      \r\n      \r\n      \r\n      Education\r\n      \r\n      2012-2016 Towson University Organismal Biology & Ecology (Towson, Maryland)\r\n      \r\n      \r\n      2019-2021 Bren School of Environemtal Science & Management at the University of California Santa Barbara Master of Environmental Science & Management (Santa Barbara, California)\r\n      \r\n      \r\n      \r\n      Experience\r\n      \r\n      \r\n      Skills & Certifications\r\n      \r\n      \r\n      1. Oâ€™Hara-Wild, M., & Hyndman, R. (2021). Vitae: Curriculum vitae for r markdown. https://CRAN.R-project.org/package=vitae\r\n      \r\n      \r\n      2. MÃ¼ller, K., & Wickham, H. (2020). Tibble: Simple data frames. https://CRAN.R-project.org/package=tibble\r\n      \r\n      \r\n      \r\n    \r\n  \r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-23T23:54:37-08:00"
+      "contents": "\r\n    \r\n  \r\n  Kelsie Fronheiser\r\n  \r\n  \r\n  Home\r\n  About Me\r\n  Resume\r\n  Portfolio\r\n  Gallery\r\n  Blog\r\n  ☰\r\n  \r\n  \r\n    \r\n      \r\n        \r\n          \r\n          \r\n          \r\n        \r\n        \r\n      \r\n      \r\n        \r\n    Home\r\n  \r\n  \r\n    About Me\r\n  \r\n  \r\n    Resume\r\n  \r\n  \r\n    Portfolio\r\n  \r\n  \r\n    Gallery\r\n  \r\n  \r\n    Blog\r\n  \r\n        \r\n    \r\n  \r\n    \r\n    \r\n      Kelsie Fronheiser\r\n      Student\r\n      Bren School of Environmental Science & Management at the University of California Santa Barbara\r\n\r\n      \r\n      |\r\n       +1 443 553 9610 |\r\n       ~ |\r\n       kfronheiser@ucsb.edu |\r\n      \r\n       https://github.com/kfronh1\">https://github.com/kfronh1 |\r\n       mariecurie |\r\n      \r\n\r\n      \r\n      Some stuff about me\r\n      \r\n      \r\n      \r\n      \r\n      \r\n      Education\r\n      \r\n      2012-2016 Towson University Organismal Biology & Ecology (Towson, Maryland)\r\n      \r\n      \r\n      2019-2021 Bren School of Environemtal Science & Management at the University of California Santa Barbara Master of Environmental Science & Management (Santa Barbara, California)\r\n      \r\n      \r\n      \r\n      Experience\r\n      \r\n      \r\n      Skills & Certifications\r\n      \r\n      \r\n      1. Oâ€™Hara-Wild, M., & Hyndman, R. (2021). Vitae: Curriculum vitae for r markdown. https://CRAN.R-project.org/package=vitae\r\n      \r\n      \r\n      2. MÃ¼ller, K., & Wickham, H. (2020). Tibble: Simple data frames. https://CRAN.R-project.org/package=tibble\r\n      \r\n      \r\n      \r\n    \r\n  \r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-02-24T15:23:45-08:00"
     },
     {
       "path": "gallery.html",
@@ -29,22 +29,22 @@
       "description": "Some of my favorite photos from past wildlife experiences",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\nWhile traveling abroad I spent two weeks volunteering with Wildlife Act at Manyoni Private Game Reserve in South Africa where I helped to track endangered radio-collared African wild dogs.\r\n\r\n\r\n\r\nI spent half a year as an animal rescue intern at the National Aquarium in Baltimore, Maryland where I helped to rehabilitate and release Green & Kemp’s ridley sea turtles as well as a harbor seal named Megatron!\r\n\r\n\r\n\r\nWhile traveling abroad I spent one week volunteering at Wildlife Friends Foundation Thailand in Thailand where I helped with the daily care of rescued Asian elephants, like Boon Mee shown above who was rescued from a tourist company.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-23T23:54:38-08:00"
+      "last_modified": "2021-02-24T15:23:46-08:00"
     },
     {
       "path": "index.html",
       "title": "Kelsie Fronheiser",
       "author": [],
-      "contents": "\r\n\r\n          \r\n      \r\n      Kelsie Fronheiser\r\n      \r\n      \r\n      Home\r\n      About Me\r\n      Resume\r\n      Projects\r\n      Gallery\r\n      Blog\r\n      ☰\r\n      \r\n      \r\n      \r\n        \r\n          \r\n            Kelsie Fronheiser\r\n          \r\n          \r\n            \r\n              I am a master’s candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara. I am specializing in Conservation Planning with a focus in Environmental Data Science. My career aspirations are to contribute to conservation planning and/or environmental policy to protect the Chesapeake Bay.\r\n            \r\n            \r\n              I am a master’s candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara. I am specializing in Conservation Planning with a focus in Environmental Data Science. My career aspirations are to contribute to conservation planning and/or environmental policy to protect the Chesapeake Bay.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
-      "last_modified": "2021-02-23T23:54:38-08:00"
+      "contents": "\r\n\r\n          \r\n      \r\n      Kelsie Fronheiser\r\n      \r\n      \r\n      Home\r\n      About Me\r\n      Resume\r\n      Portfolio\r\n      Gallery\r\n      Blog\r\n      ☰\r\n      \r\n      \r\n      \r\n        \r\n          \r\n            Kelsie Fronheiser\r\n          \r\n          \r\n            \r\n              I am a master’s candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara. I am specializing in Conservation Planning with a focus in Environmental Data Science. My career aspirations are to contribute to conservation planning and/or environmental policy to protect the Chesapeake Bay.\r\n            \r\n            \r\n              I am a master’s candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara. I am specializing in Conservation Planning with a focus in Environmental Data Science. My career aspirations are to contribute to conservation planning and/or environmental policy to protect the Chesapeake Bay.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
+      "last_modified": "2021-02-24T15:23:47-08:00"
     },
     {
       "path": "projects.html",
-      "title": "Projects",
-      "description": "Here are some of my past projects",
+      "title": "Portfolio",
+      "description": "Here are some of my past projects that highlight my skills and experience",
       "author": [],
       "contents": "\r\n\r\n\r\nThis map was created in my Introduction to GIS course in winter 2020.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-23T23:54:39-08:00"
+      "last_modified": "2021-02-24T15:23:47-08:00"
     },
     {
       "path": "resume.html",
@@ -52,7 +52,7 @@
       "description": "Last updated: January 7, 2021",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-23T23:54:39-08:00"
+      "last_modified": "2021-02-24T15:23:48-08:00"
     }
   ],
   "collections": ["posts/posts.json"]
