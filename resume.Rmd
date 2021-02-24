@@ -1,0 +1,18 @@
+---
+title: "Master Resume"
+image: "telemetry.jpg"
+description: |
+  Last updated: January 7, 2021
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo = FALSE, message=FALSE, fig.align='center', fig.pos='H', out.width= "800px", out.height="1100px"}
+
+knitr::include_graphics("Master_resume.pdf")
+
+```
+
