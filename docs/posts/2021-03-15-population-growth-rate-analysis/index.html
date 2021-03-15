@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Population Growth Rate Analysis"]},{"type":"character","attributes":{},"value":["This analysis was completed in R Studio 1.4 to determine population growth rate trends in Eureka dune grass, which is a rare bunchgrass that is only found on 3 sand bunes in Death Valley National Park."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Kelsie Fronheiser"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["01-15-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Population Growth Rate Analysis"]},{"type":"character","attributes":{},"value":["This analysis was completed in R Studio 1.4 to determine population growth rate trends in Eureka dune grass, which is a rare bunchgrass that is only found on 3 sand bunes in Death Valley National Park."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Kelsie Fronheiser"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["01-15-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","theme","code_folding","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["lumen"]},{"type":"character","attributes":{},"value":["hide"]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2394,6 +2394,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <a href="../../about.html">About Me</a>
 <a href="../../resume.html">Resume</a>
 <a href="../../blog.html">Projects</a>
+<a href="../../mastersproject.html">Master's Project</a>
 <a href="../../gallery.html">Gallery</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -2417,6 +2418,16 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#arithmetic-growth-rate">Arithmetic growth rate</a></li>
+<li><a href="#log-growth-rate">Log growth rate</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+</ul>
+</nav>
+</div>
 <p><em>1. Give three reasons why a plant or animal might be patchily distributed like the Eureka dune grass. For each, describe whether you would expect the location of the high-density patches to be consistent from year to year (3 points).</em></p>
 <ol type="1">
 <li><p>Particular biotic conditions (vegetation, animal species, fungi, etc) may be needed for a particular species, which would distribute the individuals to those particular areas. For example, certain bird species may only forage or nest in one or two tree species so they would be located in those individual trees and nowhere else in a landscape. In this case the location of the high-density patches would likely stay consistent from year to year unless there is a disturbance that disrupts the biotic condition(s) (i.e wildfire).</p></li>
@@ -2425,6 +2436,10 @@ d-appendix d-footnote-list a.footnote-backlink {
 </ol>
 <p><em>2. Read in the data, and calculate the mean and standard error of Swallenia density (plants/ha) in each year. Make a plot showing the means as points and the standard errors as error bars. Based on this plot, do you think that the Swallenia population density has changed over time? (2 points)</em></p>
 <div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dunegrass</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Swallenia_long.csv"</span><span class='op'>)</span>
 
@@ -2437,6 +2452,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <span class='va'>dunegrass_mean</span>
 </code></pre>
 </div>
+</details>
 <pre><code># A tibble: 4 x 5
    year   sum  mean    sd    se
 * &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -2444,6 +2460,10 @@ d-appendix d-footnote-list a.footnote-backlink {
 2  2009   681  61.9  88.4  26.7
 3  2010  1115 101.  133.   40.2
 4  2011   764  69.5  97.7  29.4</code></pre>
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>dunegrass_mean</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span>, y <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
          <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2452,6 +2472,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
+</details>
 <p><img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
 </div>
 <p>Based on this plot, I do think that the <em>Swallenia</em> population density has changed over time.The population seems to have increased from 2008 to 2010 and then decreased rather drastically between 2010 and 2011.</p>
@@ -2459,6 +2480,10 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p><em>With four years of data, we can calculate three annual population growth rates (2008-09, 2009-10, and 2010-11). We’ll start with the arithmetic growth rate, which you should recall is the difference in abundance divided by the time interval.</em></p>
 <p><em>3. Using the mean densities from the prior question, what are the estimated growth rates for each of the three annual timesteps? (1 point)</em></p>
 <div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>EGR</span> <span class='op'>&lt;-</span> <span class='va'>dunegrass_mean</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>mutate</span><span class='op'>(</span>Estimated_GR <span class='op'>=</span> <span class='fu'>lead</span><span class='op'>(</span><span class='va'>mean</span><span class='op'>)</span> <span class='op'>-</span> <span class='va'>mean</span> <span class='op'>/</span><span class='fl'>1</span> <span class='op'>)</span>
@@ -2466,6 +2491,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <span class='va'>EGR</span>
 </code></pre>
 </div>
+</details>
 <pre><code># A tibble: 4 x 6
    year   sum  mean    sd    se Estimated_GR
 * &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt;
@@ -2478,6 +2504,10 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p>I think a paired t-test is the most appropriate option for this analysis because the growth rates are calculated from the same plots year after year, rather than being from two completely seperate samples. Additionally, the samples are from the same population that are clustered into sampling groups. Thus, each sample is paired and should be treated as such with a paired t-test.</p>
 <p><em>5. Based on your decision in the previous question, use either two-sample t-tests or paired t-tests to evaluate whether there is evidence that the population growth rate was different from zero in each of the three years (you’ll need to run separate tests for each of 2008-09, 2009-10, and 2010-11). Choose a level for <span class="math inline">\(\alpha\)</span>, and justify your choice. Based on the P-values, in which (if any) years can you reject the null hypothesis that the growth rate is zero? (2 points)</em></p>
 <div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dunegrass1</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"Swallenia_wide.csv"</span><span class='op'>)</span>
 
@@ -2502,6 +2532,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <span class='va'>ttest2008_2009</span>
 </code></pre>
 </div>
+</details>
 <pre><code>
     Paired t-test
 
@@ -2513,10 +2544,15 @@ alternative hypothesis: true difference in means is not equal to 0
 sample estimates:
 mean of the differences 
                5.636364 </code></pre>
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ttest2009_2010</span>
 </code></pre>
 </div>
+</details>
 <pre><code>
     Paired t-test
 
@@ -2528,10 +2564,15 @@ alternative hypothesis: true difference in means is not equal to 0
 sample estimates:
 mean of the differences 
                39.45455 </code></pre>
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ttest2010_2011</span>
 </code></pre>
 </div>
+</details>
 <pre><code>
     Paired t-test
 
@@ -2547,6 +2588,10 @@ mean of the differences
 <p>I chose a 95% confidence interval (alpha 0.05) because this means that if the same population is sampled on numerous occasions the resulting intervals would contain the true population parameter in approximately 95 % of cases. The null hypothesis that the growth rate is zero is rejected for the growth rates between 2009-2010 (p = 0.034) and 2010-2011 (p = 0.037). This means that there statistically was a difference between the Eureka dune grass growth rate between those years. For the years 2008-2009 (p = 0.349) the null hypothesis that the growth rate is zero is retained. This means that there is no statistical evidence that the growth rate of the Eureka dune grass between year 2008 and 2009 changed (were different).</p>
 <p><em>6. What assumptions does the t-test make about the normality of the data (note that this differs for the 2-sample and paired tests)? Do your data satisfy those assumptions? If not, how might that affect the interpretation of your results? (2 points)</em></p>
 <div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>diff2008_2009</span> <span class='op'>&lt;-</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>dunegrass1</span>, <span class='st'>"plot"</span>, <span class='st'>"count_2008"</span>, <span class='st'>"count_2009"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>mutate</span><span class='op'>(</span>difference <span class='op'>=</span> <span class='va'>count_2009</span> <span class='op'>-</span> <span class='va'>count_2008</span><span class='op'>)</span>
@@ -2581,37 +2626,67 @@ mean of the differences
 <span class='va'>Hist_2008_2009</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-4-1.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Hist_2009_2010</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-4-2.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Hist_2010_2011</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-4-3.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>qq_2008_2009</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-4-4.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>qq_2009_2010</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-4-5.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>qq_2010_2011</span>
 </code></pre>
 </div>
+</details>
 <p><img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-4-6.png" width="624" /></p>
 </div>
 <p>A paired t-test assumes that the difference of each pair is normally distributed. The data does seem to satisfy normal distribution between years 2008 and 2009. But the data does not satisfy the normal distribution assumption between 2009 and 2010 because it is positively skewed or between 2010 and 2011 because it is negatively skewed. This non-normal distribution increases the chance of false positive t-test results.</p>
 <h2 id="log-growth-rate">Log growth rate</h2>
 <p><em>7. For each of the three years, use the t-test (the same type that you previously chose), applied to the log transformation of the abundance data, to calculate the mean value of <span class="math inline">\(r_t\)</span> and test the null hypothesis that it is zero. Based on the P-values, in which (if any) years can you reject the null hypothesis that the growth rate is zero? (2 points)</em></p>
 <div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>log_transform</span> <span class='op'>&lt;-</span><span class='va'>dunegrass1</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>mutate</span><span class='op'>(</span>log_08 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>count_2008</span><span class='op'>)</span>,
@@ -2646,6 +2721,7 @@ mean of the differences
 <span class='va'>ttestlog2008_2009</span>
 </code></pre>
 </div>
+</details>
 <pre><code>
     Paired t-test
 
@@ -2657,10 +2733,15 @@ alternative hypothesis: true difference in means is not equal to 0
 sample estimates:
 mean of the differences 
               0.2185064 </code></pre>
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ttestlog2009_2010</span>
 </code></pre>
 </div>
+</details>
 <pre><code>
     Paired t-test
 
@@ -2672,10 +2753,15 @@ alternative hypothesis: true difference in means is not equal to 0
 sample estimates:
 mean of the differences 
               0.3883146 </code></pre>
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ttestlog2010_2011</span>
 </code></pre>
 </div>
+</details>
 <pre><code>
     Paired t-test
 
@@ -2691,6 +2777,10 @@ mean of the differences
 <p>The null hypothesis that the growth rate is zero is rejected for the growth rates between 2009-2010 (p = 0.004) and 2010-2011 (p = 0.002). This means that there statistically was a difference between the Eureka dune grass growth rate between those years. For the years 2008-2009 (p = 0.194) the null hypothesis that the growth rate is zero is retained. This means that there is no statistical evidence that the growth rate of the Eureka dune grass between year 2008 and 2009 changed (were different). These results are consistent with the results of the untransformed t-test.</p>
 <em>8. Do the log-transformed data fit the normality assumptions of the t-test better or worse than the untransformed data? On the basis of this comparison, are you more confident about the statistical results for the arithmetic growth rate or the log growth rate? (2 points)</em>
 <div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>log_transform1</span> <span class='op'>&lt;-</span> <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='va'>log_transform</span>, 
                                cols <span class='op'>=</span> <span class='fu'>starts_with</span><span class='op'>(</span><span class='st'>"log"</span><span class='op'>)</span>,
@@ -2731,31 +2821,57 @@ mean of the differences
 <span class='va'>Histlog_2008_2009</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-6-1.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Histlog_2009_2010</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-6-2.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Histlog_2010_2011</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-6-3.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>qqlog_2008_2009</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-6-4.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>qqlog_2009_2010</span>
 </code></pre>
 </div>
+</details>
 <img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-6-5.png" width="624" />
+<details>
+<summary>
+hide
+</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>qqlog_2010_2011</span>
 </code></pre>
 </div>
+</details>
 <p><img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-6-6.png" width="624" /></p>
 </div>
 <p>Based on these results I am more confident in the statistcal results of the log growth rate, rather than the arithmetic growth rate. Although the histogram with the most normal distribution is of the untransformed 2008-2009 data, when reviewing the quantile-quantile plots for normality the best fit lines were in all three of the plots of the log values of the data.</p>
@@ -2763,6 +2879,19 @@ mean of the differences
 <p><em>9. Write a short paragraph to the park superintendent describing your finding about the changes (if any) to the dune grass population over the period from 2008 to 2011. Do not report every analysis you ran; instead, report your conclusions based on what you consider the best (or most robust) analysis. You may want to include a graph or table to support your explanation. (4 points)</em></p>
 <p>The most important findings of our analysis showed that there were statistically significant changes in grow rates between the years of 2009-2010 and 2010-2011 for the Eureka Dune Grass (<em>Swallenia alexandrae</em>). The geometric and arithmetic growth rates between 2009 and 2010 were 0.493 and 39.45, respectively, which tell us that the population increased between 2009 and 2010. The population growth rates between 2010 and 2011 however showed a different trend. The geometric and arithmetic growth rates between years 2010 and 2011 were -0.37804189 and -31.909091, respectively. This negative growth rate means that the Eureka Dune Grass population declined between 2010 and 2011.These differences were statistically tested using a paired t-test and were considered statistically significant in both cases. The difference in the mean population densities between years 2009, 2010, and 2011 can be clearly seen in Graph 1 below. The question that remains now is, what environmental changes or disturbances were the causes of the significant rise and decline of the Eureka Dune Grass population between 2009 and 2011?</p>
 <div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+hide
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>dunegrass_mean</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span>, y <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> 
+ <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span>, ymin <span class='op'>=</span> <span class='va'>mean</span> <span class='op'>-</span> <span class='va'>se</span>, ymax <span class='op'>=</span> <span class='va'>mean</span> <span class='op'>+</span> <span class='va'>se</span><span class='op'>)</span>, width <span class='op'>=</span> <span class='fl'>0.1</span>, color <span class='op'>=</span> <span class='st'>"darkred"</span>, size <span class='op'>=</span> <span class='fl'>1.3</span><span class='op'>)</span> <span class='op'>+</span>
+ <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Eureka Dune Grass Desnsity Over Time"</span>, x <span class='op'>=</span> <span class='st'>"Year"</span>, y <span class='op'>=</span> <span class='st'>"Mean Eureka Dune Grass Density (plants/ha)"</span>, caption <span class='op'>=</span> <span class='st'>"Graph 1. Mean density for Eureka Dune Grass is shown as black points for each year, with the standard error of the\n mean shown  as red errorbars."</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
 <p><img src="population-growth-rate-analysis_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

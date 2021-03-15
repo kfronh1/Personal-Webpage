@@ -9,6 +9,10 @@ date: 01-15-2021
 output:
   distill::distill_article:
     self_contained: false
+    theme: lumen
+    code_folding: hide
+    toc: true
+    toc_float: true
 ---
 
 

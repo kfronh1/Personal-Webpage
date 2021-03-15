@@ -13,6 +13,8 @@ navbar:
       href: resume.html
     - text: "Projects"
       href: blog.html
+    - text: "Master's Project"
+      href: mastersproject.html
     - text: "Gallery"
       href: gallery.html
     
