@@ -1,0 +1,80 @@
+---
+title: "Spatial Visualization of Oil Spill Events in California"
+description: |
+  These maps, which display locations and numbers of oil spills in California for the year 2008, were created in R-Studio 1.4.
+author:
+  - name: Kelsie Fronheiser
+    url: {}
+date: 02-22-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    theme: lumen
+    code_folding: hide
+    toc: true
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, error = FALSE, message = FALSE)
+
+library(tidyverse)
+library(here)
+library(sf)
+library(tmap)
+```
+
+The spatial data used in this report was collected from the [Oil Spill Incident Tracking database](https://gis.data.ca.gov/datasets/7464e3d6f4924b50ad06e5a553d71086_0/data) by the California Department of Fish and Game Office of Spill Prevention & Response, published on July 23, 2009.  
+
+```{r}
+oil_spills <- read_sf("ds394.shp")
+ca_counties <- read_sf(here("_posts", "2021-03-14-visualization-of-oil-spill-events-in-california", "ca_counties","CA_Counties_TIGER2016.shp"))
+
+ca_subset <- ca_counties %>% 
+  select(NAME, ALAND) %>% 
+  rename(county_name = NAME, land_area = ALAND)
+
+#ca_subset %>% st_crs()
+#oil_spills %>% st_crs()
+
+oil_spills <- st_transform(oil_spills, 3857)
+
+#oil_spills %>% st_crs()
+```
+
+## Interactive Map of Inland Oil Spill Events in California
+```{r}
+
+# Set the viewing mode to "interactive":
+tmap_mode(mode = "view")
+
+tm_shape(ca_subset) +
+  tm_borders() +
+  tm_shape(oil_spills) +
+  tm_dots(col = "red1") +
+  tmap_style("natural")
+
+```
+
+
+**Figure 1.** California oil spill events for the year 2008 are displayed by red points. Click on a point to see information about the individual spill event.
+
+```{r}
+ca_oil <- ca_subset %>% 
+  st_join(oil_spills)
+
+oil_counts <- ca_oil %>% 
+  count(county_name)
+```
+
+## Choropleth Map of Inland Oil Spill Events by California County
+```{r}
+ggplot(data = oil_counts) +
+  geom_sf(aes(fill = n), color = "black", size = 0.1) +
+  scale_fill_gradientn(colors = c("white","orange","red")) +
+  theme_void() +
+  labs(fill = "Number of oil spills")
+```
+
+**Figure 2.** California oil spill events for the year 2008 are summed by county, with the abundance of spills displayed by a gradient from zero spills in white to 500+ spills in red. The county with the highest number of oil spills in 2008 was Los Angeles County.

@@ -1,7 +1,7 @@
 ---
-title: "welcome"
+title: "Wind Turbine Location Priority Analysis"
 description: |
-  This is my first blog post on my very own website! Very cool.
+  This weighted-priority analysis was completed in ArcGIS 10.8 and idenitifed the top ten sites for wind turbines in Santa Barbara county. 
 author:
   - name: Kelsie Fronheiser
 date: 02-09-2021
@@ -11,12 +11,10 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+```{r echo = FALSE, message=FALSE, fig.align='center', fig.pos='H', out.width= "1000px", out.height="850px"}
+
+knitr::include_graphics("GISmap3.pdf")
+
+
+
 ```
-
-Distill is a publication format for scientific and technical writing, native to the web.
-
-Learn more about using Distill at <https://rstudio.github.io/distill>.
-
-

@@ -1,0 +1,70 @@
+---
+title: "Hierarchical Clustering"
+description: |
+  A short description of the post.
+author:
+  - name: Kelsie Fronheiser
+    url: {}
+date: 03-8-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    theme: lumen
+    code_folding: hide
+    toc: true
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(here)
+library(janitor)
+library(palmerpenguins)
+
+# Packages for cluster analysis:
+library(NbClust)
+library(cluster)
+library(factoextra)
+library(dendextend)
+library(ggdendro)
+```
+
+The data used in this report was obtained from [Santa Barbara Coastal LTER and J. Melack. 2019. *SBC LTER: Land: Stream chemistry in the Santa Barbara Coastal drainage area, ongoing since 2000* ver 16. Environmental Data Initiative.](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-sbc.6.16) Water samples are collected from stream sites in Santa Barbara watersheds throughout each year since the program started in 2000. The water chemistry measurements include dissolved nitrogen (nitrate, ammonium, total dissolved nitrogen); soluble reactive phosphorus (SRP); particulate organic carbon, nitrogen and phosphorus; total suspended sediments; and conductivity.
+
+```{r}
+water_chem <- read_csv("sbc_lter_registered_stream_chemistry.csv") %>% 
+ na_if(.,-999) # Replace "-999" with NA
+
+chem_means <- water_chem %>% 
+  group_by(site_code) %>% 
+  summarize(across(nh4_uM:spec_cond_uSpercm, mean, na.rm = TRUE))
+
+#scale numerical variables
+wc_scaled <- chem_means %>% 
+  select(nh4_uM:spec_cond_uSpercm) %>% 
+  scale()
+# Add row names
+rownames(wc_scaled) <- chem_means$site_code
+```
+
+### Complete Linkage Agglomerative Hierarchical Clustering
+
+This analysis used the `stats::hclust()` function to perform a complete linkage hierarchical clustering of water chemistry values in individual stream sites in Santa Barbara. Complete linkage creates clusters by merging observations with the smallest *maximum* distance.
+
+```{r}
+# Compute dissimilarity values (Euclidean distances)
+euc_distance <- dist(wc_scaled, method = "euclidean")
+
+# Hierarchical clustering (complete linkage)
+hc_complete <- hclust(euc_distance, method = "complete" )
+
+# Use `ggdendrogram()` to make dendrogram
+ggdendrogram(hc_complete, 
+             rotate = TRUE) +
+  theme_minimal() +
+  labs(x = "Stream Site Code", y = "Euclidean Distance", title = "Stream Site Chemistry Dendrogram in Santa Barbara, CA")
+```
+

@@ -1,0 +1,98 @@
+---
+title: "The Great Gatsby Word Cloud"
+description: |
+  This text and sentiment analysis focusing on the novel "The Great Gatsby" by F. Scott Fitzgerald was completed in RStudio 1.4.
+author:
+  - name: Kelsie Fronheiser
+    url: {}
+date: 02-24-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    theme: lumen
+    code_folding: hide
+    toc: true
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, error = FALSE, message = FALSE)
+```
+
+The text used in this report is the novel *The Great Gatsby* by F. Scott Fitzgerald, downloaded from [Project Guntenberg](https://www.gutenberg.org/ebooks/64317).
+
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(textdata)
+library(pdftools)
+library(ggwordcloud)
+library(RColorBrewer)
+library(wordcloud2)
+
+gatsby <- pdf_text("the greatgatsby.pdf")
+
+gatsby_tidy <- data.frame(gatsby) %>% 
+  mutate(text_full = str_split(gatsby, pattern = "\\r\n")) %>% 
+  unnest(text_full) %>% 
+  mutate(text_full = str_trim(text_full))
+
+gatsby_df <- gatsby_tidy %>% 
+  slice(-(1:39)) %>% 
+  slice(-(4837:5141)) %>% 
+  mutate(chapter = case_when(
+    str_detect(text_full, pattern = "Chapter") ~ text_full,
+    TRUE ~ NA_character_
+  )) %>% 
+  fill(chapter) %>% 
+  separate(col = chapter, into = c("ch", "no"), sep = " ") %>% 
+  mutate(chapter = as.numeric(as.roman(no)))
+
+gatsby_tokens <- gatsby_df %>% 
+  unnest_tokens(word, text_full) %>% 
+  dplyr::select(-gatsby)
+
+gatsby_nostopwords <- gatsby_tokens %>% 
+  anti_join(stop_words)
+
+nonstop_counts <- gatsby_nostopwords %>% 
+  count(word)
+
+```
+## Word Cloud of Top 100 Words in The Great Gatsby
+```{r}
+top100_words <- nonstop_counts %>% 
+  arrange(-n) %>% 
+  slice(1:100)
+
+
+Word_cloud1 <- wordcloud2(data = top100_words, size = .6, backgroundColor = "black", color = "white", shape = "circle")
+
+Word_cloud1
+
+```
+
+**Figure 1.** This word cloud shows the top 100 words used in The Great Gatsby. The frequency of word use is displayed by size, with larger words used more frequently. Hover over each word to see how many times it appeared in the novel.
+
+## Sentiment Analysis of The Great Gatsby by Chapter
+```{r}
+gatsby_afinn <- gatsby_nostopwords %>% 
+  inner_join(get_sentiments("afinn"))
+
+afinn_counts <- gatsby_afinn %>% 
+  count(chapter, value)
+
+afinn_means <- gatsby_afinn %>% 
+  group_by(chapter) %>% 
+  summarize(mean_afinn = mean(value))
+
+ggplot() +
+  geom_col(data = afinn_means, aes(x = chapter, y = mean_afinn), fill = "dodgerblue4", legend = FALSE) +
+  theme_minimal() +
+  labs(x = "Chapter", y = "Mean Sentiment")
+```
+
+**Figure 2.** This sentiment analysis shows the mean sentiment value of the words used per chapter. The analysis was run using the 'afinn' lexicon.
+

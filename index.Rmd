@@ -1,6 +1,6 @@
 ---
 title: "Kelsie Fronheiser"
-image: "pic.jpg"
+image: "Fronheiser_Bren.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/kelsie-fronheiser-116a861a2/"
@@ -13,4 +13,4 @@ output:
 site: distill::distill_website
 ---
  
-I am a master's candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara. I am specializing in Conservation Planning with a focus in Environmental Data Science. My career aspirations are to contribute to conservation planning and/or environmental policy to protect the Chesapeake Bay. 
+Hi! I am a master's candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara specializing in Conservation Planning. My background is in biology, ecology, and environmental education. My career aspirations are to conserve vital ecosystems, wildlife populations, and vulnerable communities in the Chesapeake Bay area through land management, conservation planning, and/or environmental & social policy.

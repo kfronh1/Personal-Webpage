@@ -1,0 +1,143 @@
+---
+title: "Non Linear Least Squares Regression"
+description: |
+  This analysis 
+author:
+  - name: Kelsie Fronheiser
+    url: {}
+date: 03-10-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    theme: lumen
+    code_folding: hide
+    toc: true
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(here)
+library(gt)
+library(patchwork)
+library(broom)
+```
+The data used in this report was obtained from [Global wild fish catch and aquaculture production, compiled by Earth Policy Institute with 1950-2010 from U.N. Food and Agriculture Organization (FAO), Global Capture Production and Global Aquaculture Production, electronic databases.](http://www.fao.org/fishery/topic/16140/en) The Earth Policy Institute has compiled data on global wild fish catch and farmed fish, which was collected by the United Nations Food and Agriculture Organization Fisheries Division between 1950 and 2012. The data include fishes, crustaceans, mollusks, and various other aquatic animals. This report will be focusing on only wild catch.
+
+```{r}
+fish <- read_csv(here("_posts", "2021-03-15-non-linear-least-squares-regression", "fish_catch.csv"))
+
+fish_tidy <- fish %>% 
+  rename("Year"=1, "Wild"=2, "Farmed"=3, "Total"=4) %>% 
+  slice(5:67) %>% 
+  mutate(Wild = as.numeric(Wild), Farmed = as.numeric(Farmed), Total=as.numeric(Total))
+```
+
+### Exploratory Graph of Wild Catch
+```{r}
+g1 <-ggplot(data = fish_tidy, aes(x = Year, y = Wild)) +
+  geom_point(color = 'steelblue3') +
+  scale_x_discrete(breaks=seq(1950, 2020, by = 10)) +
+   scale_y_continuous(breaks=seq(0, 100, by = 10)) +
+  theme_minimal() +
+  labs(x = "Year", y = "Wild Fish Catch (million tons)")
+
+# Log transformed data:
+g2 <- ggplot(data = fish_tidy, aes(x = Year, y = log(Wild))) +
+  geom_point(color = 'darkblue') +
+  scale_x_discrete(breaks=seq(1950, 2020, by = 10)) +
+  theme_minimal() +
+  labs(x = "Year", y = "ln(Wild Fish Catch (million tons))")
+
+(g1 + g2)
+```
+
+Wild fish catch displays logistic growth. Catch increases from 1950 to 1990, besides a small decline in the early 1970's, then plateaus from 1990 to 2012. The logistic growth equation is:
+
+$P(t)=\frac{K}{1+Ae^{-kt}}$, where
+
+- $K$ is the carrying capacity
+- $A$ is $\frac{K-P_0}{P_0}$
+- $k$ is the growth rate constant
+
+The initial paraemeter estimates for this model are a carrying capacity *K* ~90 million tons and *A* ~4 ((90 - 17)/17). The slope of the log-transformed exponential growth phase gives us the value for the growth rate constant *k* (or *r*). These starting parameters can be estimated mathematically using Nonlinear Least Squares. 
+
+<br>  
+
+### Parameter Estimation using Nonlinear Least Squares
+```{r}
+# Reset years
+fish_years <- fish_tidy %>% 
+  select(Year, Wild) %>%
+  mutate(Year = as.numeric(Year)) %>%  
+  mutate(year_new = Year - min(Year))
+
+# Select only exponential growth phase and log-transform
+fish_exp <- fish_years %>% 
+  filter(year_new < 40) %>% 
+  mutate(ln_catch = log(Wild))
+  
+# Model linear to get *k* estimate (slope of this linear equation = growth rate constant)
+lm_k <- lm(ln_catch ~ year_new, data = fish_exp)
+#lm_k
+
+# Coefficient (k) ~ 0.03562
+
+K_est <- exp(4.5)
+
+# K = 90.017
+
+A_est <- (K_est - fish_years$Wild[1])/(fish_years$Wild[1])
+
+# A = 4.234
+
+fish_nls <- nls(Wild ~ K/(1 + A*exp(-r*year_new)),
+              data = fish_years,
+              start = list(K = K_est, A = A_est, r = 0.03562),
+)
+# See the model summary (null hypothesis: parameter value = 0)
+#summary(fish_nls)
+
+# Use broom:: function to get model outputs in tidy format 
+model_out <- broom::tidy(fish_nls)
+model_out %>% 
+  gt() %>% 
+  tab_header(title = "Nonlinear Least Squares Parameter Estimates") %>% 
+  cols_label(
+    estimate = "Estimate",
+    std.error = "Standard Error",
+    statistic = "Statistic",
+    p.value = "P-Value"
+  )
+```
+<br>
+The model equation with the estimated parameters is:
+$$P(t) = \frac{100.28}{1+4.316e^{-0.7t}}$$
+
+
+<br>  
+
+### Visualzation of Model Estimates over Observations
+```{r}
+# Make predictions for the population at all of those times (time) in the original df 
+fish_predict <- predict(fish_nls)
+
+# Bind predictions to original data frame
+fish_complete <- data.frame(fish_years, fish_predict)
+
+# Plot all together
+ggplot(data = fish_complete, aes(x = Year, y = Wild)) +
+  geom_point(color="dodgerblue2", size=3) +
+  geom_line(aes(x = Year, y = fish_predict), size=1.2, linetype="dashed") +
+  scale_x_continuous(breaks=seq(1940, 2020, by = 10)) +
+  scale_y_continuous(breaks=seq(0, 130, by = 10)) +
+  theme_minimal() +
+  labs(y = "Catch (million tons)", title = "Global Wild Fish Catch 1950-2012", subtitle = "Original Observations & Model Trend Line using NLS")
+```
+
+
+
+

@@ -11,3 +11,9 @@ knitr::include_graphics("GISmap3.pdf")
 
 This map was created in my Introduction to GIS course in winter 2020.
 
+```{r echo = FALSE, message=FALSE, fig.align='center', fig.pos='H', out.width= "1000px", out.height="850px"}
+
+#knitr::include_url()
+
+```
+

@@ -1,7 +1,7 @@
 ---
 title: "Gallery"
 description: |
-  Some of my favorite photos from past wildlife experiences
+  Here are some of my favorite photos from past wildlife experiences!
 ---
 
 ```{r echo = FALSE, message=FALSE}
@@ -17,12 +17,12 @@ While traveling abroad I spent two weeks volunteering with Wildlife Act at Manyo
 knitr::include_graphics("turtle.jpg")
 ```
 
-I spent half a year as an animal rescue intern at the National Aquarium in Baltimore, Maryland where I helped to rehabilitate and release Green & Kemp's ridley sea turtles as well as a harbor seal named Megatron!
+I spent half a year as an animal rescue intern at the National Aquarium in Baltimore, Maryland where I helped to rehabilitate and release Green & Kemp's ridley sea turtles as well as a Harbor seal named Megatron!
 
 ```{r echo = FALSE, message=FALSE}
 knitr::include_graphics("boonmee.jpg")
 ```
-While traveling abroad I spent one week volunteering at Wildlife Friends Foundation Thailand in Thailand where I helped with the daily care of rescued Asian elephants, like Boon Mee shown above who was rescued from a tourist company. 
+While traveling abroad I spent one week volunteering at Wildlife Friends Foundation Thailand in Thailand where I helped with the daily care of rescued Asian elephants, like Boon Mee shown above, who was rescued from a tourist company. 
 
 
 
