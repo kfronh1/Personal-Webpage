@@ -5,8 +5,8 @@ description: |
 ---
 
 ```{r echo = FALSE, message=FALSE, fig.align='center', fig.pos='H', out.width= "1000px", out.height="1100px"}
-library(here)
-knitr::include_graphics(here("masterresume.pdf"))
+
+knitr::include_graphics("masterresume.pdf")
 
 ```
 
