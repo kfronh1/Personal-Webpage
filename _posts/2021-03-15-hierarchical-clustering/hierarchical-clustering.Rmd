@@ -1,7 +1,7 @@
 ---
-title: "Hierarchical Clustering"
+title: "Complete Linkage Agglomerative Hierarchical Clustering"
 description: |
-  A short description of the post.
+  This hierarchical clustering analysis completed in RStudio 1.4 grouped stream sites in the Santa Barbara region by their water chemistry.
 author:
   - name: Kelsie Fronheiser
     url: {}

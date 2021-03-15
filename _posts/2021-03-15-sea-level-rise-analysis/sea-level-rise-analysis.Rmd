@@ -1,11 +1,11 @@
 ---
 title: "Spatial Sea Level Rise Analysis"
 description: |
-  A short description of the post.
+  This analysis for the city of Santa Barbara was completed in ArcGIS 10.8 and shows the areas at risk of inundation for scenarios between 1 - 10 meters of sea level rise.
 author:
   - name: Kelsie Fronheiser
     url: {}
-date: 03-15-2021
+date: 01-31-2020
 output:
   distill::distill_article:
     self_contained: false

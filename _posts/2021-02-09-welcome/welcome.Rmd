@@ -1,10 +1,10 @@
 ---
 title: "Wind Turbine Location Priority Analysis"
 description: |
-  This weighted-priority analysis was completed in ArcGIS 10.8 and idenitifed the top ten sites for wind turbines in Santa Barbara county. 
+  This analysis was completed in ArcGIS 10.8 and idenitifed the top ten suitable sites for wind turbines in Santa Barbara County. 
 author:
   - name: Kelsie Fronheiser
-date: 02-09-2021
+date: 02-24-2020
 output:
   distill::distill_article:
     self_contained: false

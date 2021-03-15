@@ -1,11 +1,11 @@
 ---
-title: "Watershed Conservation Potential"
+title: "Watershed Conservation Multi-Criteria Analysis (MCA)"
 description: |
-  A short description of the post.
+  This weighted-priority analysis identifies the watersheds in Santa Barbara county with the highest conservation potentials according to 3 specified parameters and was completed in ArcGIS 10.8.  
 author:
   - name: Kelsie Fronheiser
     url: {}
-date: 03-15-2021
+date: 03-16-2020
 output:
   distill::distill_article:
     self_contained: false

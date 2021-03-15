@@ -2,12 +2,12 @@
 title: "Master Resume"
 image: "telemetry.jpg"
 description: |
-  Last updated: March 14, 2021
+  Last updated: March 15, 2021
 ---
 
 ```{r echo = FALSE, message=FALSE, fig.align='center', fig.pos='H', out.width= "1000px", out.height="1100px"}
-
-knitr::include_graphics("Master_resume.pdf")
+library(here)
+knitr::include_graphics(here("masterresume.pdf"))
 
 ```
 

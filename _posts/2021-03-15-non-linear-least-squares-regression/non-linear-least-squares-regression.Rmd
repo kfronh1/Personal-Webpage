@@ -1,7 +1,7 @@
 ---
-title: "Non Linear Least Squares Regression"
+title: "Non Linear Least Squares Analysis"
 description: |
-  This analysis 
+  This regression analysis, which models global wild fish catch from 1950-2012, was completed in RStudio 1.4.
 author:
   - name: Kelsie Fronheiser
     url: {}
@@ -25,6 +25,7 @@ library(gt)
 library(patchwork)
 library(broom)
 ```
+
 The data used in this report was obtained from [Global wild fish catch and aquaculture production, compiled by Earth Policy Institute with 1950-2010 from U.N. Food and Agriculture Organization (FAO), Global Capture Production and Global Aquaculture Production, electronic databases.](http://www.fao.org/fishery/topic/16140/en) The Earth Policy Institute has compiled data on global wild fish catch and farmed fish, which was collected by the United Nations Food and Agriculture Organization Fisheries Division between 1950 and 2012. The data include fishes, crustaceans, mollusks, and various other aquatic animals. This report will be focusing on only wild catch.
 
 ```{r}
