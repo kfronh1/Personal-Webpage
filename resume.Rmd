@@ -1,6 +1,5 @@
 ---
 title: "Master Resume"
-image: "telemetry.jpg"
 description: |
   Last updated: March 15, 2021
 ---
