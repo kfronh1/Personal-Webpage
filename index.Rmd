@@ -13,4 +13,4 @@ output:
 site: distill::distill_website
 ---
  
-Hi! I am a master's candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara specializing in Conservation Planning. My background is in biology, ecology, and environmental education. My career aspirations are to conserve vital ecosystems, wildlife populations, and vulnerable communities in the Chesapeake Bay area through land management, conservation planning, and/or environmental & social policy.
+Hi! I am a master's candidate at the Bren School of Environmental Science & Management at the University of California Santa Barbara specializing in Conservation Planning. My background is in biology, ecology, and environmental education. My career aspirations are to conserve vital ecosystems, wildlife populations, and vulnerable communities through land management, conservation planning, and/or environmental & social policy.
